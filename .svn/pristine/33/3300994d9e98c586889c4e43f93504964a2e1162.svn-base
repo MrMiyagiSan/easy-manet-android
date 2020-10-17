@@ -1,0 +1,111 @@
+package es.upv.grc.easymanet.android;
+
+import java.io.Serializable;
+import java.net.InetAddress;
+import java.util.concurrent.atomic.AtomicInteger;
+
+import android.net.Uri;
+
+public class Nodo implements Serializable {
+	
+	static final long serialVersionUID = 0;
+	
+	static AtomicInteger numNodos = new AtomicInteger(0);
+	
+	// Información básica
+	private android.net.Uri userImgUri;
+	private String usrNick;
+	private InetAddress IP;
+	// Servicios
+	private boolean chatAllowed;
+
+	public Nodo() {
+		super();
+		numNodos.getAndIncrement();
+	}
+	
+	
+	
+	/**
+	 * @param userImgUri
+	 * @param usrNick
+	 * @param iP
+	 */
+	public Nodo(Uri userImgUri, String usrNick, InetAddress iP) {
+		super();
+		numNodos.getAndIncrement();
+		this.userImgUri = userImgUri;
+		this.usrNick = usrNick;
+		IP = iP;
+	}
+
+
+
+	/**
+	 * @return the userImgUri
+	 */
+	public android.net.Uri getUserImgUri() {
+		return userImgUri;
+	}
+
+	/**
+	 * @param userImgUri the userImgUri to set
+	 */
+	public void setUserImgUri(android.net.Uri userImgUri) {
+		this.userImgUri = userImgUri;
+	}
+
+	/**
+	 * @return the usrNick
+	 */
+	public String getUsrNick() {
+		return usrNick;
+	}
+
+	/**
+	 * @param usrNick the usrNick to set
+	 */
+	public void setUsrNick(String usrNick) {
+		this.usrNick = usrNick;
+	}
+
+	/**
+	 * @return the iP
+	 */
+	public InetAddress getIP() {
+		return IP;
+	}
+
+	/**
+	 * @param iP the iP to set
+	 */
+	public void setIP(InetAddress iP) {
+		IP = iP;
+	}
+
+	/**
+	 * @return the chatAllowed
+	 */
+	public boolean isChatAllowed() {
+		return chatAllowed;
+	}
+
+	/**
+	 * @param chatAllowed the chatAllowed to set
+	 */
+	public void setChatAllowed(boolean chatAllowed) {
+		this.chatAllowed = chatAllowed;
+	}
+
+	public void finalize()
+	{
+		numNodos.getAndDecrement();
+	}
+	
+	// TODO Implementar el serializador
+	public String toString()
+	{
+		return "";
+	}
+
+}

@@ -1,0 +1,71 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/userInfoTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:padding="2dp"
+        android:text="@string/user_info_sp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textStyle="bold" />
+
+    <ImageButton
+        android:id="@+id/usuarioIB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/userInfoTV"
+        android:adjustViewBounds="false"
+        android:cropToPadding="true"
+        android:maxHeight="48dp"
+        android:maxWidth="48dp"
+        android:minHeight="48dp"
+        android:minWidth="48dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_nodo" />
+
+    <TextView
+        android:id="@+id/ipTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/usuarioIB"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@+id/usuarioIB"
+        android:text="Obteniendo ip..." />
+
+    <TextView
+        android:id="@+id/usrNickTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/ipTextView"
+        android:layout_alignTop="@+id/usuarioIB"
+        android:text="@string/usr_nick_sp"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <ImageView
+        android:id="@+id/spacerIV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ipTextView"
+        android:layout_marginTop="14dp"
+        android:scaleType="center"
+        android:src="@drawable/spacer" />
+
+    <TextView
+        android:id="@+id/foundNodesTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/spacerIV"
+        android:layout_marginTop="12dp"
+        android:padding="2dp"
+        android:text="@string/found_nodes_sp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textStyle="bold" />
+
+</RelativeLayout>

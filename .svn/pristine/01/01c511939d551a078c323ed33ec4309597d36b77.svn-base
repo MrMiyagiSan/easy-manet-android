@@ -1,0 +1,130 @@
+package es.upv.grc.easymanet.android;
+
+import java.io.Serializable;
+import java.net.InetAddress;
+import java.util.concurrent.atomic.AtomicInteger;
+
+import org.simpleframework.xml.*;
+
+import android.net.Uri;
+
+@Root
+public class Nodo implements Serializable {
+	
+	static final long serialVersionUID = 0;
+	
+	static AtomicInteger numNodos = new AtomicInteger(0);
+	
+	// Información básica
+	@Element
+	private android.net.Uri userImgUri;
+	@Element
+	private String usrNick;
+	@Element
+	private String IP;
+	// Servicios
+	@Attribute
+	private boolean chatAllowed;
+	@Attribute
+	private boolean videoConfAllowed;
+
+	public Nodo() {
+		super();
+		numNodos.getAndIncrement();
+	}
+	
+	/**
+	 * @param userImgUri
+	 * @param usrNick
+	 * @param iP
+	 */
+	public Nodo(Uri userImgUri, String usrNick, String iP) {
+		super();
+		numNodos.getAndIncrement();
+		this.userImgUri = userImgUri;
+		this.usrNick = usrNick;
+		IP = iP;
+	}
+
+	/**
+	 * @return the userImgUri
+	 */
+	public android.net.Uri getUserImgUri() {
+		return userImgUri;
+	}
+
+	/**
+	 * @param userImgUri the userImgUri to set
+	 */
+	public void setUserImgUri(android.net.Uri userImgUri) {
+		this.userImgUri = userImgUri;
+	}
+
+	/**
+	 * @return the usrNick
+	 */
+	public String getUsrNick() {
+		return usrNick;
+	}
+
+	/**
+	 * @param usrNick the usrNick to set
+	 */
+	public void setUsrNick(String usrNick) {
+		this.usrNick = usrNick;
+	}
+
+	/**
+	 * @return the iP
+	 */
+	public String getIP() {
+		return IP;
+	}
+
+	/**
+	 * @param iP the iP to set
+	 */
+	public void setIP(String iP) {
+		IP = iP;
+	}
+
+	/**
+	 * @return the chatAllowed
+	 */
+	public boolean isChatAllowed() {
+		return chatAllowed;
+	}
+
+	/**
+	 * @param chatAllowed the chatAllowed to set
+	 */
+	public void setChatAllowed(boolean chatAllowed) {
+		this.chatAllowed = chatAllowed;
+	}
+
+	/**
+	 * @return the videoConfAllowed
+	 */
+	public boolean isVideoConfAllowed() {
+		return videoConfAllowed;
+	}
+
+	/**
+	 * @param videoConfAllowed the videoConfAllowed to set
+	 */
+	public void setVideoConfAllowed(boolean videoConfAllowed) {
+		this.videoConfAllowed = videoConfAllowed;
+	}
+
+	public void finalize()
+	{
+		numNodos.getAndDecrement();
+	}
+	
+	// TODO Implementar el serializador
+	public String toString()
+	{
+		return "";
+	}
+
+}

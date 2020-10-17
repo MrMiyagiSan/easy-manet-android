@@ -1,0 +1,59 @@
+package es.upv.grc.easymanet.android;
+
+import java.util.Date;
+
+import org.simpleframework.xml.Attribute;
+import org.simpleframework.xml.Element;
+
+
+public class Node {
+	
+
+	static final long serialVersionUID = 2L;
+	
+	@Attribute (name = "ip")
+	private String mIp;
+	@Element  (name= "timestamp")
+	private Date mTimestamp;
+	@Element (name= "lastseen")
+	private Date mLastSeen;
+	
+	
+	
+	public Node(@Attribute(name = "ip") String ip, @Element(name= "timestamp")Date timestamp, @Element(name= "lastseen")Date lastSeen) {
+		this.mIp = ip;
+		this.mTimestamp = timestamp;
+		this.mLastSeen = lastSeen;
+	}
+	
+	
+	
+	public String getIp() {
+		return mIp;
+	}
+	public void setIp(String ip) {
+		this.mIp = ip;
+	}
+	public Date getTimestamp() {
+		return mTimestamp;
+	}
+	public void setTimestamp(Date timestamp) {
+		this.mTimestamp= timestamp;
+	}
+	public Date getLastSeen() {
+		return mLastSeen;
+	}
+	public void setLastSeen(Date lastSeen) {
+		this.mLastSeen = lastSeen;
+	}
+	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Node [mIp=" + mIp + ", mTimestamp=" + mTimestamp
+				+ ", mLastSeen=" + mLastSeen + "]";
+	}
+
+}

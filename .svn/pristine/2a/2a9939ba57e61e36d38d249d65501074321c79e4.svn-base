@@ -1,0 +1,135 @@
+package es.upv.grc.easymanet.android;
+
+import java.io.Serializable;
+import java.net.InetAddress;
+import java.util.HashMap;
+import java.util.concurrent.atomic.AtomicInteger;
+
+import org.simpleframework.xml.*;
+
+import android.net.Uri;
+
+public class User implements Serializable {
+	
+	static final long serialVersionUID = 1L;
+	
+//	static AtomicInteger numNodos = new AtomicInteger(0);
+	
+	// Información básica
+	private Node mNode;
+	private String mNick;
+	private android.net.Uri mImgUri;
+//	boolean what;
+	
+	// Servicios
+	private HashMap<String, Boolean> services;
+
+	public User() {
+		super();
+//		numNodos.getAndIncrement();
+	}
+	
+	
+	/**
+	 * 
+	 * @param mImgUri
+	 * @param mNick
+	 * @param iP
+	 */
+	public User(Uri userImgUri, String usrNick, Node node) {
+		super();
+//		numNodos.getAndIncrement();
+		this.mImgUri = userImgUri;
+		this.mNick = usrNick;
+		this.mNode = node;
+	}
+
+	/**
+	 * @param mNode
+	 * @param mNick
+	 * @param mImgUri
+	 * @param services
+	 */
+	public User(Node mNode, String mNick, Uri mImgUri, HashMap<String, Boolean> services) {
+		super();
+		this.mNode = mNode;
+		this.mNick = mNick;
+		this.mImgUri = mImgUri;
+		this.services = services;
+	}
+
+
+	/**
+	 * @return the mNode
+	 */
+	public Node getNode() {
+		return mNode;
+	}
+
+
+	/**
+	 * @param mNode the mNode to set
+	 */
+	public void setNode(Node mNode) {
+		this.mNode = mNode;
+	}
+
+
+	/**
+	 * @return the mNick
+	 */
+	public String getNick() {
+		return mNick;
+	}
+
+
+	/**
+	 * @param mNick the mNick to set
+	 */
+	public void setNick(String mNick) {
+		this.mNick = mNick;
+	}
+
+
+	/**
+	 * @return the mImgUri
+	 */
+	public android.net.Uri getImgUri() {
+		return mImgUri;
+	}
+
+
+	/**
+	 * @param mImgUri the mImgUri to set
+	 */
+	public void setImgUri(android.net.Uri mImgUri) {
+		this.mImgUri = mImgUri;
+	}
+
+
+	/**
+	 * @return the services
+	 */
+	public HashMap<String, Boolean> getServices() {
+		return services;
+	}
+
+
+	/**
+	 * @param services the services to set
+	 */
+	public void setServices(HashMap<String, Boolean> services) {
+		this.services = services;
+	}
+
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "User [mNode=" + mNode + ", mNick=" + mNick + ", mImgUri="
+				+ mImgUri + ", services=" + services + "]";
+	}
+	
+}

@@ -1,0 +1,162 @@
+package es.upv.grc.easymanet.android;
+
+import java.io.Serializable;
+import java.net.InetAddress;
+import java.util.HashMap;
+import java.util.concurrent.atomic.AtomicInteger;
+
+import org.simpleframework.xml.*;
+
+import android.net.Uri;
+
+public class User implements Serializable {
+	
+	static final long serialVersionUID = 1L;
+	
+//	static AtomicInteger numNodos = new AtomicInteger(0);
+	
+	// Información básica
+	private Node mNode;
+	private String mNick;
+	private android.net.Uri mImgUri;
+	boolean what;
+	// Servicios
+	private HashMap<String, Boolean> services;
+
+	public User() {
+		super();
+//		numNodos.getAndIncrement();
+	}
+	
+	
+	
+	/**
+	 * 
+	 * @param mImgUri
+	 * @param mNick
+	 * @param iP
+	 */
+	public User(Uri userImgUri, String usrNick, Node node) {
+		super();
+//		numNodos.getAndIncrement();
+		this.mImgUri = userImgUri;
+		this.mNick = usrNick;
+		this.mNode = node;
+	}
+
+	/**
+	 * @param mNode
+	 * @param mNick
+	 * @param mImgUri
+	 * @param services
+	 */
+	public User(Node mNode, String mNick, Uri mImgUri, HashMap<String, Boolean> services) {
+		super();
+		this.mNode = mNode;
+		this.mNick = mNick;
+		this.mImgUri = mImgUri;
+		this.services = services;
+	}
+
+
+
+	/**
+	 * @return the mNode
+	 */
+	public Node getNode() {
+		return mNode;
+	}
+
+
+
+	/**
+	 * @param mNode the mNode to set
+	 */
+	public void setNode(Node node) {
+		this.mNode = node;
+	}
+
+
+
+	/**
+	 * @return the services
+	 */
+	public HashMap<String, Boolean> getServices() {
+		return services;
+	}
+
+
+
+	/**
+	 * @param services the services to set
+	 */
+	public void setServices(HashMap<String, Boolean> services) {
+		this.services = services;
+	}
+
+
+
+	/**
+	 * @return the mImgUri
+	 */
+	public android.net.Uri getUserImgUri() {
+		return mImgUri;
+	}
+
+	/**
+	 * @param mImgUri the mImgUri to set
+	 */
+	public void setUserImgUri(android.net.Uri userImgUri) {
+		this.mImgUri = userImgUri;
+	}
+
+	/**
+	 * @return the mNick
+	 */
+	public String getUsrNick() {
+		return mNick;
+	}
+
+	/**
+	 * @param mNick the mNick to set
+	 */
+	public void setUsrNick(String usrNick) {
+		this.mNick = usrNick;
+	}
+
+
+	/**
+	 * @return the chatAllowed
+	 */
+	public boolean isChatAllowed() {
+		return true;
+	}
+
+	/**
+	 * @param chatAllowed the chatAllowed to set
+	 */
+	public void setChatAllowed(boolean chatAllowed) {
+
+	}
+
+	/**
+	 * @return the videoConfAllowed
+	 */
+	public boolean isVideoConfAllowed() {
+		return true;
+	}
+
+	/**
+	 * @param videoConfAllowed the videoConfAllowed to set
+	 */
+	public void setVideoConfAllowed(boolean videoConfAllowed) {
+	}
+
+	
+	// TODO Implementar el serializador
+	public String toString()
+	{
+		return "";
+	}
+
+}
